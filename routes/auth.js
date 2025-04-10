@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { users, generateWeakToken, weakHash } = require('../database');
 
-// الصفحة الرئيسية
+
 router.get('/', (req, res) => {
     res.render('home', { 
         user: req.session.user,
@@ -11,12 +11,12 @@ router.get('/', (req, res) => {
     });
 });
 
-// صفحة الدخول
+
 router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// معالجة الدخول
+
 router.post('/login', (req, res) => {
     const { username, password, stayLoggedIn } = req.body;
     const user = users.find(u => u.username === username && u.password === password);
@@ -39,7 +39,7 @@ router.post('/login', (req, res) => {
     res.redirect('/account');
 });
 
-// صفحة الحساب
+
 router.get('/account', (req, res) => {
     if (req.session.user) {
         return res.render('account', { user: req.session.user });
@@ -62,7 +62,7 @@ router.get('/account', (req, res) => {
     res.redirect('/login');
 });
 
-// تسجيل الخروج
+
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.clearCookie('stay_logged_in');

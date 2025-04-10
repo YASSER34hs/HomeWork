@@ -3,10 +3,9 @@ const router = express.Router();
 const fs = require('fs');
 const { users, weakHash } = require('../database');
 
-// قائمة كلمات المرور المحتملة
+
 const candidates = fs.readFileSync('./candidates.txt', 'utf-8').split('\n');
 
-// صفحة اختبار الاختراق
 router.get('/', (req, res) => {
     res.render('brute', { 
         userCredentials: "apvgn:yqtbh",
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// معالجة اختبار الاختراق
 router.post('/', (req, res) => {
     const { cookie } = req.body;
     if (!cookie) return res.send('No cookie provided');
@@ -25,7 +23,6 @@ router.post('/', (req, res) => {
     
     if (!user) return res.send('User not found');
     
-    // محاولة Brute-force
     let found = false;
     for (const candidate of candidates) {
         const testHash = weakHash(username + ':' + candidate.trim());
