@@ -1,0 +1,20 @@
+{
+    "name": "auth-lab",
+    "version": "1.0.0",
+    "description": "Vulnerable auth lab for stay-logged-in cookie brute-forcing",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js"
+    },
+    "dependencies": {
+      "cookie-parser": "^1.4.6",
+      "dotenv": "^16.0.3",
+      "ejs": "^3.1.8",
+      "express": "^4.18.2",
+      "express-session": "^1.17.3"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.20"
+    }
+  }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <h1>Home</h1>
+    
+    <% if (user) { %>
+        <p>Welcome, <%= user.username %>!</p>
+        <a href="/account">My Account</a>
+    <% } else { %>
+        <p>Welcome to our vulnerable app!</p>
+        <a href="/login">Login</a>
+    <% } %>
+    
+    <h2><%= labTitle %></h2>
+    <p><%= labDescription %></p>
+    <p>To solve the lab, brute-force the victim's cookie to gain access to his /account page.</p>
+    <p>Your credentials: apvgn:yqtbh</p>
+    <p>Victim's username: frqkp</p>
+    
+    
+    
+</body>
+</html>

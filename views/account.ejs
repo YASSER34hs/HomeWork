@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <h1>My Account</h1>
+    <p>Welcome, <%= user.username %>!</p>
+    <p>This is your sensitive account information.</p>
+    
+    <% if (user.username === 'frqkp') { %>
+        <p><strong>Flag:</strong> LAB9{BRUTE_FORCE_SUCCESS}</p>
+    <% } %>
+    
+    <a href="/logout">Logout</a>
+</body>
+</html>
